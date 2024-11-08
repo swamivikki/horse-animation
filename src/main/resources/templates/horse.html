@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Running Horse</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: white; /* Set background color to white */
+        }
+
+        #horse {
+            position: absolute;
+            bottom: 0;
+            animation: move 5s linear infinite;
+        }
+
+        @keyframes move {
+            from { left: 0; }
+            to { left: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<img id="horse" src="/running-horse.gif" alt="Running Horse">
+
+<script>
+    const horse = document.getElementById('horse');
+
+    // Pause animation on mouse hover
+    horse.addEventListener('mouseenter', () => {
+        horse.style.animationPlayState = 'paused';
+    });
+
+    // Resume animation when the mouse leaves
+    horse.addEventListener('mouseleave', () => {
+        horse.style.animationPlayState = 'running';
+    });
+</script>
+
+</body>
+</html>
